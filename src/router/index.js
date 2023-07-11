@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import PageHome from '@/pages/PageHome'
 import PageThreadShow from '@/pages/PageThreadShow'
+import PageNotFound from '@/pages/PageNotFound'
 
 Vue.use(Router)
 
@@ -13,11 +14,16 @@ export default new Router({
       component: PageHome
     },
     {
-      // : is a dynamic path
-      path: '/thread/:id',
+      path: '/thread/:id', // : is a dynamic path, which allows the id to be added later
       name: 'PageThreadShow',
       component: PageThreadShow,
       props: true
+    },
+    {
+      path: '*', // * refers to uknown pages?
+      name: 'NotFound',
+      component: PageNotFound
+      // redirect: {name: 'PageHome'} <- alternatively, you can redirect user
     }
   ],
   mode: 'history'
