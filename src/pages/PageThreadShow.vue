@@ -3,7 +3,7 @@
         <h1>{{ thread.title }}</h1>
 
         <div class="post-list">
-            <div v-for="postId in thread.posts" class="post">
+            <div v-for="postId in thread.posts" class="post" :key="postId">
                 <div class="user-info">
                     <a href="#" class="user-name">{{
                         users[posts[postId].userId].name
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-    import sourceData from '../data.json'
+    import sourceData from '@/data.json'
     export default {
         props: {
             id: {
