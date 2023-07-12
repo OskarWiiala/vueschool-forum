@@ -38,9 +38,8 @@
         },
 
         methods: {
-            addPost (eventData) {
-                const post = eventData.post
-                const postId = eventData.post['.key']
+            addPost ({post}) {
+                const postId = post['.key']
                 // Vue cannot detect when object properties are added or removed because of the limitations of modern JavaScript.
                 // In order to make the changes reactive (aka make the components update), use the Vue.set method
                 // Vue.set(object, propertyName, value)
