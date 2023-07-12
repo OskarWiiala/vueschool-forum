@@ -21,22 +21,26 @@
     </div>
 
     <!-- :title is shown when hovered over -->
-    <div class="post-date text-faded" :title="post.publishedAt | humanFriendlyDate">
-      <!-- Since diffForHumans is a filter, a special syntax is used as follows: -->
-      {{ post.publishedAt | diffForHumans }}
+    <div class="post-date text-faded">
+      <AppDate :timestamp="post.publishedAt"/>
     </div>
   </div>
 </template>
 
 <script>
   import sourceData from '@/data'
-  import moment from 'moment'
+  import AppDate from './AppDate'
+
   export default {
     props: {
       post: {
         required: true,
         type: Object
       }
+    },
+
+    components: {
+      AppDate
     },
 
     computed: {
@@ -46,17 +50,6 @@
 
       userPostsCount () {
         return Object.keys(this.user.posts).length
-      }
-    },
-
-    filters: {
-      humanFriendlyDate (date) {
-        return moment.unix(date).format('MMM Do YYYY, h:mm:ss a')
-      },
-
-      // Time elapsed since posted
-      diffForHumans (date) {
-        return moment.unix(date).fromNow()
       }
     }
   }
