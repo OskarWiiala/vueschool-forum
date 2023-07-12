@@ -30,12 +30,12 @@
 
 <script>
   import sourceData from '@/data'
-  import AppDate from './AppDate'
+  // import AppDate from './AppDate'
 
   export default {
-    components: {
-      AppDate
-    },
+    // components: {
+    //   AppDate
+    // },
 
     props: {
       thread: {

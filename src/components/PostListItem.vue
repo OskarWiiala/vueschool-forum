@@ -29,7 +29,6 @@
 
 <script>
   import sourceData from '@/data'
-  import AppDate from './AppDate'
 
   export default {
     props: {
@@ -39,9 +38,9 @@
       }
     },
 
-    components: {
-      AppDate
-    },
+    // components: {
+    //   AppDate
+    // },
 
     computed: {
       user () {
